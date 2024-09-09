@@ -1,0 +1,17 @@
+{
+  "name": "my-webapp",
+  "version": "1.0.0",
+  "description": "Мини-приложение для Telegram с формой регистрации",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "Arseniy"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "express": "^4.19.2"
+  },
+  "keywords": [],
+  "author": "Arseniy",
+  "license": "ISC"
+}

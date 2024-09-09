@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1>Регистрация</h1>
+  <form id="registerForm" class="regform">
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    <label for="username">Короткое имя telegram:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+  <div class="telegram-channel">
+    <a href="https://t.me/your_channel_name" target="_blank"><button>Подписаться на канал</button></a>
+  </div>
+  <div id="notification" class="notification"></div>
+
+  <script>
+    const form = document.getElementById('registerForm');
+    const notification = document.getElementById('notification');
+
+    form.addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const name = formData.get('name');
+      const username = formData.get('username');
+
+      try {
+        const response = await fetch('/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({ name, username })
+        });
+
+        const message = await response.text();
+
+        notification.textContent = message;
+        notification.classList.remove('error');
+        notification.style.display = 'block';
+        setTimeout(() => notification.style.display = 'none', 5000);
+      } catch (error) {
+        notification.textContent = 'Произошла ошибка при регистрации.';
+        notification.classList.add('error');
+        notification.style.display = 'block';
+        setTimeout(() => notification.style.display = 'none', 5000);
+      }
+    });
+  </script>
+</body>
+</html>

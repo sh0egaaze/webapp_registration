@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    flex-direction: column;
+}
+  
+.regform {
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+    
+#registerForm label {
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+  
+#registerForm input {
+    margin-bottom: 15px;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+  
+#registerForm button {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+  
+#registerForm button:hover {
+    background-color: #45a049;
+}
+  
+.telegram-channel {
+    margin-top: 20px;
+    text-align: center;
+}
+  
+.telegram-channel button {
+    padding: 12px;
+    background-color: #0078e7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+  
+.telegram-channel button:hover {
+    background-color: #005bb5;
+}
+  
+@media (max-width: 600px) {
+    #registerForm {
+      width: 100%;
+    }
+  
+    #registerForm input, 
+    #registerForm button {
+      font-size: 0.9rem;
+    }
+  
+    .container {
+      width: 100%;
+      padding: 10px;
+    }
+}
+  
+@media (max-width: 400px) {
+    #registerForm input, 
+    #registerForm button {
+      font-size: 0.8rem;
+    }
+  
+   .container {
+      padding: 5px;
+    }
+}
+  
+@media (min-width: 600px) and (max-width: 1200px) {
+    .container {
+      width: 80%;
+    }
+  
+    #registerForm input, 
+    #registerForm button {
+      font-size: 1rem;
+    }
+}
+  
+@media (min-width: 1200px) and (max-width: 2500px) {
+    .container {
+      width: 70%;
+    }
+  
+    #registerForm input, 
+    #registerForm button {
+      font-size: 1.1rem;
+    }
+}
+  
+@media (min-width: 2500px) {
+    .container {
+      width: 60%;
+    }
+  
+    #registerForm input, 
+    #registerForm button {
+      font-size: 1.2rem;
+    }
+}  
+
+.notification {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%); /* Центрирует уведомление по горизонтали */
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Добавляем тень для улучшения видимости */
+    z-index: 1000;
+    text-align: center;
+}
+
+.notification.error {
+    background-color: #f44336; /* Красный цвет для ошибок */
+}
+
+.notification.show {
+    display: block;
+    animation: fadeIn 0.5s, fadeOut 0.5s 4s; /* Анимация показа и скрытия */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
